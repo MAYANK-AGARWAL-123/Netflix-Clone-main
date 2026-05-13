@@ -34,18 +34,18 @@ function Netflix() {
 
   useEffect(() => {
     dispatch(getGenres());
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (currentUser) => {
       if (!currentUser) navigate("/login");
       else setEmail(currentUser.email);
     });
-},[])
+  }, [navigate])
   useEffect(() => {
     if (genresLoaded) {
       dispatch(fetchMovies({ genres, type: "all" }));
     }
-  }, [genresLoaded]);
+  }, [genresLoaded, dispatch, genres]);
 
   
 

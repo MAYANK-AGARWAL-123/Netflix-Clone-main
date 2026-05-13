@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import CardSlider from "../components/CardSlider";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
 import { useNavigate } from "react-router-dom";
@@ -31,20 +30,18 @@ function MoviePage() {
 
   useEffect(() => {
     dispatch(getGenres());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (genresLoaded) {
       dispatch(fetchMovies({ genres, type: "movie" }));
     }
-  }, [genresLoaded]);
-
-  const [user, setUser] = useState(undefined);
+  }, [genresLoaded, dispatch, genres]);
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (currentUser) {setUser(currentUser.uid);
-      setEmail(currentUser.email);}
-    else navigate("/login");
+    if (currentUser) {
+      setEmail(currentUser.email);
+    } else navigate("/login");
   });
 
   window.onscroll = () => {

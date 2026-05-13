@@ -28,7 +28,7 @@ if (x && x.key) {
   console.error('Trailer fetch error:', error);
   toast.error('Failed to load trailer. Please try again later.');
 });
-},[]);
+},[location.state.id.id]);
 
 
  

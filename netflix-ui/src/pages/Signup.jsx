@@ -18,8 +18,9 @@ export default function Signup() {
   const handleSignUp = async () => {
     try {
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
-        // Show success message
-    toast.success("Signup successful! Welcome aboard!");
+      // Show success message
+      toast.success("Signup successful! Welcome aboard!");
+      navigate("/");
     } catch (error) {
       console.error('Signup error:', error);
       const message = error?.message || "Signup failed. Please try again.";
@@ -83,6 +84,7 @@ export default function Signup() {
       </div>
       {/* <Developers /> */}
       <Footer />
+      <ToastContainer />
     </div>
     </>
   );

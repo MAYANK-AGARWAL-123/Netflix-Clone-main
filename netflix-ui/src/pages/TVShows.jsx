@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import CardSlider from "../components/CardSlider";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +15,6 @@ function TVShows() {
   const movies = useSelector((state) => state.netflix.movies);
   const genres = useSelector((state) => state.netflix.genres);
   const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
-  const dataLoading = useSelector((state) => state.netflix.dataLoading);
   const [email, setEmail] = useState("");
 
   const getFilteredMovies = () => {
@@ -31,18 +29,16 @@ function TVShows() {
 
   useEffect(() => {
     if (!genres.length) dispatch(getGenres());
-  }, []);
+  }, [dispatch, genres.length]);
 
   useEffect(() => {
     if (genresLoaded) {
       dispatch(fetchMovies({ genres, type: "tv" }));
     }
-  }, [genresLoaded]);
-
-  const [user, setUser] = useState(undefined);
+  }, [genresLoaded, dispatch, genres]);
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (currentUser) {setUser(currentUser.uid);
+    if (currentUser) {
       setEmail(currentUser.email);
     }
     else navigate("/login");

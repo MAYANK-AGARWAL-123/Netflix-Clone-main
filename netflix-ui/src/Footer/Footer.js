@@ -43,13 +43,13 @@ function Footer() {
           <p className="text-gray-400">Copyright © 2023 Netflix, Inc.</p>
           <ul className="flex mt-6 lg:mt-0">
             <li className="mr-8">
-              <a href="#" className="text-gray-400 hover:text-white">Privacy</a>
+              <button className="text-gray-400 hover:text-white bg-transparent border-none cursor-pointer">Privacy</button>
             </li>
             <li className="mr-8">
-              <a href="#" className="text-gray-400 hover:text-white">Terms</a>
+              <button className="text-gray-400 hover:text-white bg-transparent border-none cursor-pointer">Terms</button>
             </li>
             <li className="mr-8">
-              <a href="#" className="text-gray-400 hover:text-white">Contact</a>
+              <button className="text-gray-400 hover:text-white bg-transparent border-none cursor-pointer">Contact</button>
             </li>
           </ul>
         </div>
