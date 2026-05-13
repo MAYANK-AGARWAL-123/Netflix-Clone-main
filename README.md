@@ -2,7 +2,7 @@
 
 Netflix Clone is a full-stack OTT platform built using the MERN stack. It replicates the core functionality of Netflix, offering a seamless streaming experience with user authentication, genre-based browsing, and interactive UI/UX. This project demonstrates the integration of front-end design, back-end APIs, and database operations for a media streaming service.
 
-Live Link(https://netflix-clone-1s16.vercel.app/login)
+Live Link(netflix-clone-main-s9xs.vercel.app)
 
 📚 Table of Contents
 System Architecture
